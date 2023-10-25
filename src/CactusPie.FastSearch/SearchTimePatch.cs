@@ -1,7 +1,6 @@
 using System;
 using System.Reflection;
 using Aki.Reflection.Patching;
-using TarkovDateTime = GClass1252;
 
 namespace CactusPie.FastSearch
 {
@@ -9,7 +8,7 @@ namespace CactusPie.FastSearch
     {
         protected override MethodBase GetTargetMethod()
         {
-            MethodInfo method = typeof(GClass2517).GetMethod("GetNextDiscoveryTime", BindingFlags.Static | BindingFlags.Public);
+            MethodInfo method = typeof(GClass2676).GetMethod("GetNextDiscoveryTime", BindingFlags.Static | BindingFlags.Public);
             return method;
         }
 
@@ -25,11 +24,11 @@ namespace CactusPie.FastSearch
 
             if (searchTimeMultiplier == 0)
             {
-                __result = TarkovDateTime.Now;
+                __result = GClass1190.Now;
                 return;
             }
             
-            __result = TarkovDateTime.Now.AddTicks((long)((__result - TarkovDateTime.Now).Ticks * searchTimeMultiplier));
+            __result = GClass1190.Now.AddTicks((long)((__result - GClass1190.Now).Ticks * searchTimeMultiplier));
         }
     }
 }
